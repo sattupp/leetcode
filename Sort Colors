@@ -1,0 +1,29 @@
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int n = nums.size();
+        int index = 0;
+        int left = 0;
+        int right = n - 1; 
+
+        while (index <= right) //middle part tk swap kre
+        {
+            if (nums[index] == 0) {
+                swap(nums[index], nums[left]);
+                left++;
+                index++;
+            }
+
+            else if (nums[index] == 2) {
+                swap(nums[index], nums[right]);
+                right--;
+                //catch-no need of index++ here bcz humein ne pta ki 2 se jo replace hua wo 
+                //0/1/2 me se kya tha lets suppose 0 hua and then index++ krdiye to to shi ans print ne hoke aaega bcz index++ hogya to skip hojaega 0 ko swap krna
+}
+
+            else {
+                index++;
+            }
+        }
+    }
+};
