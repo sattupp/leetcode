@@ -5,15 +5,10 @@ class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
         int n=nums.size();
-        vector<int> ans(n); //n size ka ek nya array bnaya ans naam ka 
+        vector<int> ans(n); 
         for(int index=0;index<n;index++){
-            int newIndex=(index+k)%n; //newIndex me ek formula dal diya circular move krane ke liye
-            ans[newIndex]=nums[index]; //ans[newIndex] me nums[index] ki value dal denge like 
-            //if index=0;k=2;n=6;then newIndex= (0+2)%6=2 so ans[2]=nums[0] means ans[2]=10
-           //ab jab pura loop chl jaega ans ans[newIndex] me nums ki saari purani values store hojaengi then 
- 
+            int newIndex=(index+k)%n; 
+            ans[newIndex]=nums[index]; 
         }
-        nums=ans; //ans array ko copy krdiye in nums array bcz humein is question me kuch return ne krna hai 
-        //nums wale array me hi krna hai sb kuch 
-    }
+        nums=ans; 
 };
