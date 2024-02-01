@@ -1,29 +1,50 @@
-class Solution {
-public:
-    void sortColors(vector<int>& nums) {
-        int n = nums.size();
-        int index = 0;
-        int left = 0;
-        int right = n - 1; 
+#include <iostream>
+using namespace std;
 
-        while (index <= right) //middle part tk swap kre
+void dutch_nationalflag(int arr[], int n)
+{
+    int start=0;
+    int end =n-1;
+    int i=0;
+
+    while(i<=end)
+    {
+        if(arr[i]==0)
         {
-            if (nums[index] == 0) {
-                swap(nums[index], nums[left]);
-                left++;
-                index++;
-            }
+            swap(arr[start],arr[i]);
+            start++;
+            i++;
+        }
 
-            else if (nums[index] == 2) {
-                swap(nums[index], nums[right]);
-                right--;
-                //catch-no need of index++ here bcz humein ne pta ki 2 se jo replace hua wo 
-                //0/1/2 me se kya tha lets suppose 0 hua and then index++ krdiye to to shi ans print ne hoke aaega bcz index++ hogya to skip hojaega 0 ko swap krna
-}
+        else if(arr[i]==2)
+        {
+            swap(arr[i],arr[end] );
+            end--;
+        }
 
-            else {
-                index++;
-            }
+        else
+        {
+            i++;
         }
     }
-};
+
+    for(int i=0; i<n; i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+}
+
+int main()
+{
+    int size;
+    cout<<"Enter size of array";
+    cin>>size;
+    int array[size];
+    for (int i = 0; i < size; i++)
+    {
+        cout << "Enter a number: ";
+        cin >> array[i];
+    }
+
+    dutch_nationalflag(array, size);
+}
